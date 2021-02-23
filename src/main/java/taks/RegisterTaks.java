@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import ui.RegisterUi;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -55,19 +56,23 @@ public class RegisterTaks implements Task {
         this.privacySetting = privacySetting;
     }
 
+
+    public <T extends Actor> void seleccionar(T actor) {
+        actor.attemptsTo(Click.on(RegisterUi.Button_Join_Today));
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(RegisterUi.Button_Join_Today));
         actor.attemptsTo(Enter.theValue(firstName).into(RegisterUi.Input_firstName ));
         actor.attemptsTo(Enter.theValue(lastName).into(RegisterUi.Input_lastName ));
         actor.attemptsTo(Enter.theValue(email).into(RegisterUi.Input_email ));
-        actor.attemptsTo(Enter.theValue(birthMonth).into(RegisterUi.Select_birthMonth ));
-        actor.attemptsTo(Enter.theValue(birthDay).into(RegisterUi.Select_birthDay ));
-        actor.attemptsTo(Enter.theValue(birthYear).into(RegisterUi.Select_birthYear ));
+        actor.attemptsTo(SelectFromOptions.byVisibleText(birthMonth).from(RegisterUi.Select_birthMonth));
+        actor.attemptsTo(SelectFromOptions.byVisibleText(birthDay).from(RegisterUi.Select_birthDay));
+        actor.attemptsTo(SelectFromOptions.byVisibleText(birthYear).from(RegisterUi.Select_birthYear));
         actor.attemptsTo(Click.on(RegisterUi.Button_Next_address));
         actor.attemptsTo(Enter.theValue(city).into(RegisterUi.Input_city ));
         actor.attemptsTo(Enter.theValue(zip).into(RegisterUi.Input_zip ));
-        actor.attemptsTo(Enter.theValue(country).into(RegisterUi.Input_Country ));
+        actor.attemptsTo(SelectFromOptions.byVisibleText(country).from(RegisterUi.Input_Country));
         actor.attemptsTo(Click.on(RegisterUi.Button_Next_devices));
         actor.attemptsTo(Enter.theValue(computer).into(RegisterUi.Input_Your_computer ));
         actor.attemptsTo(Enter.theValue(version).into(RegisterUi.Input_Version ));

@@ -8,13 +8,13 @@ public class RegisterUi {
     public  static  final Target Input_firstName = Target.the("Ingrese su nombre").located(By.id("firstName"));
     public  static  final Target Input_lastName = Target.the("Ingrese su Apellido").located(By.id("lastName"));
     public  static  final Target Input_email = Target.the("Ingrese su email").located(By.id("email"));
-    public  static  final Target Select_birthMonth = Target.the("Ingrese su mes").located(By.id("birthMonth"));
-    public  static  final Target Select_birthDay = Target.the("Ingrese su dia").located(By.id("birthDay"));
-    public  static  final Target Select_birthYear = Target.the("Ingrese su año").located(By.id("birthYear"));
+    public  static  final Target Select_birthMonth = Target.the("Ingrese su mes").located(By.cssSelector("select#birthMonth"));
+    public  static  final Target Select_birthDay = Target.the("Ingrese su dia").located(By.cssSelector("select#birthDay"));
+    public  static  final Target Select_birthYear = Target.the("Ingrese su año").located(By.cssSelector("select#birthYear"));
     public  static  final Target Button_Next_address = Target.the("Oprima el boton").located(By.xpath("//*[@id=\"regs_container\"]/div/div[2]/div/div[2]/div/form/div[2]/a"));
     public  static  final Target Input_city = Target.the("Ingrese su ciudad").located(By.id("city"));
     public  static  final Target Input_zip = Target.the("Ingrese su codigo postal").located(By.id("zip"));
-    public  static  final Target Input_Country = Target.the("Ingrese su nombre").located(By.xpath("//*[@id=\"regs_container\"]/div/div[2]/div/div[2]/div/form/div[1]/div[3]/div[1]/div[4]/div[2]/div/div"));
+    public  static  final Target Input_Country = Target.the("Ingrese su nombre").locatedBy("div.ui-select ul li div");
     public  static  final Target Button_Next_devices = Target.the("Oprima el boton").located(By.xpath("//*[@id=\"regs_container\"]/div/div[2]/div/div[2]/div/form/div[2]/div/a"));
     public  static  final Target Input_Your_computer = Target.the("Ingrese version de computador").located(By.xpath("//*[@id=\"web-device\"]/div[1]/div[2]/div"));
     public  static  final Target Input_Version = Target.the("ingrese la version").located(By.xpath("//*[@id=\"web-device\"]/div[2]/div[2]/div"));
